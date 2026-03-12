@@ -1,0 +1,12 @@
+{
+  "memory": {
+    "local": {
+      "enabled": true
+    },
+    "agent": {
+      "enabled": true,
+      "endpoint": "http://localhost:8888"
+    },
+    "strategy": "local-first-agent-second"
+  }
+}
