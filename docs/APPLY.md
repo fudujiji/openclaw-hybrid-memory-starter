@@ -6,50 +6,60 @@ OpenClaw Hybrid Memory Starter
 
 ## One-line pitch
 
-A lightweight starter project for building AI assistants that remember better by combining fast local recall with long-horizon memory retrieval.
+A lightweight but production-minded AI agent memory project that combines fast local recall, long-horizon memory, and durable runtime design.
+
+## What makes this project strong
+
+This is not just a chatbot wrapper.
+It reflects a more serious approach to building assistants:
+
+- **hybrid memory architecture**
+- **cost-aware retrieval**
+- **self-recovery mindset**
+- **multi-model routing**
+- **file-driven long-term context**
 
 ## What problem it solves
 
-Many assistants lose continuity across sessions or become too expensive when deep memory is queried on every message.
+Many assistants fail in one of two ways:
 
-This project demonstrates a practical alternative:
+1. they forget too much
+2. they become expensive and slow when memory is queried too aggressively
 
-- local memory handles fast factual lookup
-- a deeper memory agent is only used when needed
-- both layers are merged into a single answer path
+This project demonstrates a practical middle path:
+
+- local memory handles fast factual recall
+- deeper memory is used only when necessary
+- both are merged into a single answer flow
 
 ## Why it matters
 
-This approach improves:
+This improves:
 
 - continuity
 - personalization
 - retrieval quality
-- cost efficiency
-- response latency
+- runtime cost control
+- maintainability
 
-## Why this is a good starter project
+## Why this stands out
 
-- easy to understand
-- easy to extend
-- grounded in real agent design tradeoffs
-- useful for future production systems
+What makes the broader system interesting is not any one feature, but the combination:
 
-## What I would build next
-
-- better merge/ranking logic
-- evaluation benchmarks
-- a tiny web demo
-- memory-aware assistant templates
+- it is designed like a system, not a one-off demo
+- it can persist over time
+- it can recover operationally
+- it keeps memory inspectable and structured
+- it treats model choice as a routing problem, not a default setting
 
 ## Suggested positioning
 
-This repository is best presented as:
+This repository is best framed as:
 
 - an AI infrastructure starter
 - a memory systems experiment
-- a practical assistant architecture demo
+- a production-minded assistant architecture demo
 
 ## Short bio line for applications
 
-I build practical AI agent workflows focused on continuity, retrieval quality, and real-world automation.
+I build practical AI agent systems focused on memory, continuity, orchestration, and long-term reliability.
