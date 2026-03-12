@@ -1,43 +1,62 @@
 # OpenClaw Hybrid Memory Starter
 
-A minimal starter repo for building hybrid memory retrieval in OpenClaw:
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Status](https://img.shields.io/badge/status-starter-blue.svg)](#)
 
-- local memory search for fast factual recall
-- long-horizon memory agent as a secondary layer
-- fallback-first design to keep latency and cost under control
+A polished starter repository that shows how to build **hybrid memory retrieval** for OpenClaw-style assistants.
 
-## Why
+It combines:
 
-Pure local recall is fast but shallow across long timelines.
-Pure remote memory is richer but slower and more expensive.
-This starter combines both:
+- **fast local recall** for precise facts
+- **long-horizon memory** for deeper continuity
+- **fallback-aware routing** for better cost, latency, and reliability
 
-1. query local memory first
-2. ask the long-horizon memory agent when deeper context is needed
-3. merge results into one answer path
+## Why this exists
 
-## What this repo includes
+A lot of assistants are good at the current message and bad at everything before it.
 
-- architecture sketch
-- example routing logic
-- config template
-- practical prompts for memory-aware assistants
+This repo demonstrates a simple, practical idea:
 
-## Suggested flow
+1. search local memory first
+2. escalate to a long-horizon memory agent when needed
+3. merge both into one response path
+
+That gives you better recall without paying the cost of deep memory on every turn.
+
+## Architecture
 
 ```text
-user asks something about history/preferences/decisions
-        ↓
-local memory search
-        ↓
-if confidence is low or long-range context is needed
-        ↓
-memory agent retrieval
-        ↓
-merge + answer
+User question
+   ↓
+Local memory search
+   ↓
+Enough context? ── yes ──→ answer
+   │
+   no
+   ↓
+Long-horizon memory agent
+   ↓
+Merge + rank results
+   ↓
+Final answer
 ```
 
-## Example config
+## Repository structure
+
+```text
+.
+├── README.md
+├── LICENSE
+├── .gitignore
+├── memory.example.json
+├── docs/
+│   ├── APPLY.md
+│   └── ARCHITECTURE.md
+└── examples/
+    └── merge-memory.js
+```
+
+## Example configuration
 
 ```json
 {
@@ -54,18 +73,36 @@ merge + answer
 }
 ```
 
-## Use cases
+## Example use cases
 
-- assistant remembers prior user decisions
-- project continuity across sessions
-- preference recall without bloating prompts
-- lower-cost memory systems with graceful fallback
+- remembering prior user preferences
+- carrying project context across sessions
+- retrieving long-range decisions and timelines
+- keeping prompt size small while preserving continuity
 
-## Roadmap
+## What makes this useful
 
-- [ ] example retrieval merger script
-- [ ] benchmark latency/cost tradeoffs
-- [ ] sample OpenClaw integration guide
+- low complexity
+- easy to explain in an application or demo
+- aligns with real-world agent memory design
+- can be extended into a full memory layer later
+
+## Next improvements
+
+- [ ] add benchmark notes for latency and cost
+- [ ] add a tiny demo app
+- [ ] add ranked merge heuristics
+- [ ] add screenshots / diagrams
+
+## For application reviewers
+
+If you are reviewing this repo as part of an OpenAI Pro / builder / startup / student-style application, the short version is:
+
+- this project explores practical memory infrastructure for AI assistants
+- it focuses on reliability and cost-aware retrieval
+- it is intentionally small, readable, and extensible
+
+See [`docs/APPLY.md`](docs/APPLY.md) for a concise application-oriented summary.
 
 ## License
 

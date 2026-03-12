@@ -1,0 +1,19 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check repo files
+        run: |
+          test -f README.md
+          test -f LICENSE
+          test -f memory.example.json
+          test -f docs/APPLY.md
+          test -f docs/ARCHITECTURE.md
+          test -f examples/merge-memory.js
